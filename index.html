@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>The Squeaky Spoke</title>
+    <style>
+      :root {
+        --bg: #f7f6f2;
+        --surface: #ffffff;
+        --text: #1d1d1b;
+        --muted: #5f5f5a;
+        --accent: #d9480f;
+        --border: #e3e1da;
+        --warn: #b45309;
+        color-scheme: light dark;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #141413;
+          --surface: #1e1e1c;
+          --text: #ecebe6;
+          --muted: #a3a29c;
+          --accent: #ff7a3d;
+          --border: #33332f;
+          --warn: #f59e0b;
+        }
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+      }
+      #login {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 16px;
+        box-sizing: border-box;
+      }
+      #login[hidden] {
+        display: none;
+      }
+      #login form {
+        width: 100%;
+        max-width: 320px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      #login h1 {
+        margin: 0 0 4px;
+        font-size: 22px;
+      }
+      #login label {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 14px;
+      }
+      #login label.row {
+        flex-direction: row;
+        align-items: center;
+        gap: 8px;
+        color: var(--muted);
+      }
+      #login input[type='text'],
+      #login input[type='password'] {
+        background: var(--bg);
+        color: var(--text);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px;
+        font: inherit;
+      }
+      #login button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 10px;
+        font: inherit;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      #login button:disabled {
+        opacity: 0.6;
+      }
+      #login .msg {
+        min-height: 1.2em;
+        font-size: 13px;
+        color: var(--warn);
+      }
+      #login .muted {
+        font-size: 12px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="login" hidden>
+      <form autocomplete="on">
+        <h1>The Squeaky Spoke</h1>
+        <label>User name <input type="text" name="username" autocomplete="username" required autofocus /></label>
+        <label>Password <input type="password" name="password" autocomplete="current-password" required /></label>
+        <label class="row"><input type="checkbox" name="remember" /> Keep me signed in on this computer</label>
+        <button type="submit">Sign in</button>
+        <div class="msg" role="status"></div>
+        <div class="muted">In development: invited riders only. Your rides stay on your own computer.</div>
+      </form>
+    </div>
+    <div id="root"></div>
+    <script type="module">
+      // Filled in by scripts/deploy.mjs: one wrapped copy of the app key per user, and the
+      // encrypted app files. Nothing here reveals a password or the app's code.
+      const CONFIG = {"build":"8a70857c5e77fd6f","iterations":600000,"script":{"path":"/squeakyspoke/assets/app-8a70857c5e77fd6f.js.enc","iv":"acHF5IQ+7rCCZM7C"},"style":{"path":"/squeakyspoke/assets/app-8a70857c5e77fd6f.css.enc","iv":"MWlsG84mVzERc/xO"},"users":[{"id":"165f929a7e26528b541f6427be9c0feb5b6dda785cca55ac829e0bd2bb24cdbf","salt":"HKyCPCevUF/4GrWV2MioOw==","iv":"p5GxHLLTdAeQjCW8","wrapped":"/9rl3X/bDuxeWX0FA42Kj5MZLbJ235Q+ZDHMHUl8oeD697OqHCPwX26YPeUo5o3v"},{"id":"708e728bbb035e7373473c9906d05a64725d2cc6ba5bffa32cd636b94fcad040","salt":"pSEI8l90DdrNpr3eKpGpnA==","iv":"xDkxP/NEgm4w4sTz","wrapped":"o1dpXgmpYPDT/RHHsHiR//0Gtgwa+emEyQ2hIEuoTdQ6xhWbPLlEPF4KR3eICHqx"},{"id":"46f557112211f77bfda33dacf64ad70f1cf675146142c543c4ab51c0241898bb","salt":"Hue64tIuoAyDMFUJ9l8UtA==","iv":"0J0GaQHxcmNEW7jC","wrapped":"bK9a/vkKb9/fgkewT2jcAx0hTv7pLR1wYy3XmVg8z/MBT/e5+BUiouxfsNt9zgp9"},{"id":"424bf01446198412b2b708ec901c6174b1f6a81094bacdba567bee208a6f6acf","salt":"dCzlz6BS/rZ71Ty6nQqRjQ==","iv":"NDqQjdCvOcthRFde","wrapped":"afnkh4ugRWOvOKg4mEfzpBgEiT69isjqq9h2aCGfyPrb04I6GMoIB5eZUuAUcZWK"},{"id":"51906da0d9ca619ebf4ce1e1e0fb844f87226a426c991401df222de190f071e7","salt":"gXsQVnM9bngX/ZLRSysyKw==","iv":"Iw3HgeMgMCdvbPHm","wrapped":"4i/82AFsDARd+Or2WdfLGSgeG458RGXKHfxBzMCoQxkSGhKMmjAtqaydNBgpn6TH"},{"id":"b0b330b91cfca458a45a5b9fb3c8e019075714d45dc30efaf3f7d9a43c596fd5","salt":"l4pBgn4cZri3yMoyk1RsWA==","iv":"h1w0b12jSBVoHoWq","wrapped":"/RqS5Rx1h9jGKwQaM6r4ycg8gU80LokWrPDo4tp1Z+MUtOyrXyibUHhr7umdu/lq"}]};
+
+      if (location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+        location.replace('https://' + location.host + location.pathname + location.search);
+      }
+
+      const KEY_STORE = 'sqs:auth';
+      const subtle = crypto.subtle;
+      const enc = new TextEncoder();
+      const b64 = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+      const toB64 = (bytes) => btoa(String.fromCharCode(...new Uint8Array(bytes)));
+      const hex = (buf) => [...new Uint8Array(buf)].map((b) => b.toString(16).padStart(2, '0')).join('');
+
+      async function userId(name) {
+        return hex(await subtle.digest('SHA-256', enc.encode('sqs:' + name.trim().toLowerCase())));
+      }
+
+      async function unwrapKey(entry, password) {
+        const base = await subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
+        const kek = await subtle.deriveKey(
+          { name: 'PBKDF2', hash: 'SHA-256', salt: b64(entry.salt), iterations: CONFIG.iterations },
+          base,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['decrypt'],
+        );
+        return new Uint8Array(await subtle.decrypt({ name: 'AES-GCM', iv: b64(entry.iv) }, kek, b64(entry.wrapped)));
+      }
+
+      async function decryptFile(key, file) {
+        const res = await fetch(file.path, { cache: 'no-cache' });
+        if (!res.ok) throw new Error('Could not load ' + file.path);
+        return subtle.decrypt({ name: 'AES-GCM', iv: b64(file.iv) }, key, await res.arrayBuffer());
+      }
+
+      /** Decrypts and starts the app. Throws if the key is wrong (AES-GCM checks it). */
+      async function start(rawKey, user) {
+        const key = await subtle.importKey('raw', rawKey, 'AES-GCM', false, ['decrypt']);
+        const [js, css] = await Promise.all([decryptFile(key, CONFIG.script), decryptFile(key, CONFIG.style)]);
+        const style = document.createElement('style');
+        style.textContent = new TextDecoder().decode(css);
+        document.head.append(style);
+        window.sqsUser = user;
+        window.sqsSignOut = () => {
+          sessionStorage.removeItem(KEY_STORE);
+          localStorage.removeItem(KEY_STORE);
+          location.reload();
+        };
+        document.getElementById('login').hidden = true;
+        const url = URL.createObjectURL(new Blob([js], { type: 'text/javascript' }));
+        await import(url);
+      }
+
+      function stored() {
+        try {
+          const s = sessionStorage.getItem(KEY_STORE) ?? localStorage.getItem(KEY_STORE);
+          return s ? JSON.parse(s) : null;
+        } catch {
+          return null;
+        }
+      }
+
+      async function boot() {
+        const saved = stored();
+        if (saved) {
+          try {
+            await start(b64(saved.key), saved.user);
+            return;
+          } catch {
+            // The app key changed, because a user was removed or a password changed: sign in again.
+          }
+        }
+        sessionStorage.removeItem(KEY_STORE);
+        localStorage.removeItem(KEY_STORE);
+        showLogin();
+      }
+
+      function showLogin() {
+        const box = document.getElementById('login');
+        const form = box.querySelector('form');
+        const msg = box.querySelector('.msg');
+        const button = form.querySelector('button');
+        box.hidden = false;
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const data = new FormData(form);
+          const user = String(data.get('username') ?? '').trim();
+          button.disabled = true;
+          msg.textContent = 'Checking…';
+          try {
+            const id = await userId(user);
+            const found = CONFIG.users.find((u) => u.id === id);
+            if (!found) throw new Error('bad login');
+            const raw = await unwrapKey(found, String(data.get('password') ?? ''));
+            const record = JSON.stringify({ user, key: toB64(raw) });
+            (data.get('remember') ? localStorage : sessionStorage).setItem(KEY_STORE, record);
+            await start(raw, user);
+          } catch {
+            msg.textContent = 'Wrong user name or password.';
+            button.disabled = false;
+          }
+        });
+      }
+
+      boot();
+    </script>
+  </body>
+</html>
