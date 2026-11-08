@@ -119,7 +119,7 @@
     <script type="module">
       // Filled in by scripts/deploy.mjs: one wrapped copy of the app key per user, and the
       // encrypted app files. Nothing here reveals a password or the app's code.
-      const CONFIG = {"build":"8a70857c5e77fd6f","iterations":600000,"script":{"path":"/squeakyspoke/assets/app-8a70857c5e77fd6f.js.enc","iv":"acHF5IQ+7rCCZM7C"},"style":{"path":"/squeakyspoke/assets/app-8a70857c5e77fd6f.css.enc","iv":"MWlsG84mVzERc/xO"},"users":[{"id":"165f929a7e26528b541f6427be9c0feb5b6dda785cca55ac829e0bd2bb24cdbf","salt":"HKyCPCevUF/4GrWV2MioOw==","iv":"p5GxHLLTdAeQjCW8","wrapped":"/9rl3X/bDuxeWX0FA42Kj5MZLbJ235Q+ZDHMHUl8oeD697OqHCPwX26YPeUo5o3v"},{"id":"708e728bbb035e7373473c9906d05a64725d2cc6ba5bffa32cd636b94fcad040","salt":"pSEI8l90DdrNpr3eKpGpnA==","iv":"xDkxP/NEgm4w4sTz","wrapped":"o1dpXgmpYPDT/RHHsHiR//0Gtgwa+emEyQ2hIEuoTdQ6xhWbPLlEPF4KR3eICHqx"},{"id":"46f557112211f77bfda33dacf64ad70f1cf675146142c543c4ab51c0241898bb","salt":"Hue64tIuoAyDMFUJ9l8UtA==","iv":"0J0GaQHxcmNEW7jC","wrapped":"bK9a/vkKb9/fgkewT2jcAx0hTv7pLR1wYy3XmVg8z/MBT/e5+BUiouxfsNt9zgp9"},{"id":"424bf01446198412b2b708ec901c6174b1f6a81094bacdba567bee208a6f6acf","salt":"dCzlz6BS/rZ71Ty6nQqRjQ==","iv":"NDqQjdCvOcthRFde","wrapped":"afnkh4ugRWOvOKg4mEfzpBgEiT69isjqq9h2aCGfyPrb04I6GMoIB5eZUuAUcZWK"},{"id":"51906da0d9ca619ebf4ce1e1e0fb844f87226a426c991401df222de190f071e7","salt":"gXsQVnM9bngX/ZLRSysyKw==","iv":"Iw3HgeMgMCdvbPHm","wrapped":"4i/82AFsDARd+Or2WdfLGSgeG458RGXKHfxBzMCoQxkSGhKMmjAtqaydNBgpn6TH"},{"id":"b0b330b91cfca458a45a5b9fb3c8e019075714d45dc30efaf3f7d9a43c596fd5","salt":"l4pBgn4cZri3yMoyk1RsWA==","iv":"h1w0b12jSBVoHoWq","wrapped":"/RqS5Rx1h9jGKwQaM6r4ycg8gU80LokWrPDo4tp1Z+MUtOyrXyibUHhr7umdu/lq"}]};
+      const CONFIG = {"build":"bd9b476622100e1f","iterations":600000,"script":{"path":"/squeakyspoke/assets/app-bd9b476622100e1f.js.enc","iv":"fUIlln0rYWlr072q"},"style":{"path":"/squeakyspoke/assets/app-bd9b476622100e1f.css.enc","iv":"Y+xmu7Jo6I5SkQz2"},"users":[{"id":"165f929a7e26528b541f6427be9c0feb5b6dda785cca55ac829e0bd2bb24cdbf","salt":"Jjg/AdZP1BELEKm7p6Wpag==","iv":"fZ1rI+s3W+70z6Gb","wrapped":"/wAtdnHNbtk81ij2W/B4O6B7Go94XfNyJ2wrbE/eXN86dyRtkjPMAHHzGMXlyWSj"},{"id":"708e728bbb035e7373473c9906d05a64725d2cc6ba5bffa32cd636b94fcad040","salt":"/UQQqlkHjNERI0oxpKVg7g==","iv":"ZzYyBs3KGf+oobrp","wrapped":"piccSnHtX2nPG7t38EczynbVZMZrxlid8aUdWcqrxr2Hdu2qbGDeSn5APdaBSKL0"},{"id":"46f557112211f77bfda33dacf64ad70f1cf675146142c543c4ab51c0241898bb","salt":"pnRXcA+VhduR0pDQpJdw6g==","iv":"eT589BraeS8ht+Vu","wrapped":"eirOd61PBtsxNVzys+/WhFHeqyIyFas48Ti5LDFT25pFVhEjh2xSVF59lgYTL9x2"},{"id":"424bf01446198412b2b708ec901c6174b1f6a81094bacdba567bee208a6f6acf","salt":"aMFBOTCBwdEz6Al075QL5g==","iv":"n8MKPUI13nBAgUVA","wrapped":"1NavF1y0yfJ0+Lzo26RRpzvCc/zE2Rlj8yQDeTqQxvywO8V4f5b2K1kg5FXXYzxJ"},{"id":"51906da0d9ca619ebf4ce1e1e0fb844f87226a426c991401df222de190f071e7","salt":"2YPvEkjE443EYofTcW+A8w==","iv":"j2+6Gu/S0Ct+YofL","wrapped":"k7H+ibdEVPipxUft7z/fOiaex3plRkE3d4uYTdFSB2nfUAJiVWAKSRVlGdrg7oTG"},{"id":"b0b330b91cfca458a45a5b9fb3c8e019075714d45dc30efaf3f7d9a43c596fd5","salt":"1M8d00+5ACZZBHe46F1UJQ==","iv":"//OCI2xGo8TbBWI5","wrapped":"t8KXxvsMxMUdYrDDrBNPuKiVbIlTaojtNiwB2ef2bftfozfS3eJRc6KKHQKC5bRa"}]};
 
       if (location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(location.hostname)) {
         location.replace('https://' + location.host + location.pathname + location.search);
@@ -136,16 +136,28 @@
         return hex(await subtle.digest('SHA-256', enc.encode('sqs:' + name.trim().toLowerCase())));
       }
 
-      async function unwrapKey(entry, password) {
-        const base = await subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
-        const kek = await subtle.deriveKey(
+      /** The user's password-derived key. Kept in the browser to stay signed in across publishes. */
+      async function deriveUserKey(entry, password) {
+        const base = await subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveBits']);
+        const bits = await subtle.deriveBits(
           { name: 'PBKDF2', hash: 'SHA-256', salt: b64(entry.salt), iterations: CONFIG.iterations },
           base,
-          { name: 'AES-GCM', length: 256 },
-          false,
-          ['decrypt'],
+          256,
         );
+        return new Uint8Array(bits);
+      }
+
+      /** Unwraps this publish's app key. Throws if the user key is wrong (AES-GCM checks it). */
+      async function unwrapAppKey(entry, userKey) {
+        const kek = await subtle.importKey('raw', userKey, 'AES-GCM', false, ['decrypt']);
         return new Uint8Array(await subtle.decrypt({ name: 'AES-GCM', iv: b64(entry.iv) }, kek, b64(entry.wrapped)));
+      }
+
+      async function findEntry(user) {
+        const id = await userId(user);
+        const entry = CONFIG.users.find((u) => u.id === id);
+        if (!entry) throw new Error('unknown user');
+        return entry;
       }
 
       async function decryptFile(key, file) {
@@ -183,12 +195,13 @@
 
       async function boot() {
         const saved = stored();
-        if (saved) {
+        if (saved?.user && saved.userKey) {
           try {
-            await start(b64(saved.key), saved.user);
+            const entry = await findEntry(saved.user);
+            await start(await unwrapAppKey(entry, b64(saved.userKey)), saved.user);
             return;
           } catch {
-            // The app key changed, because a user was removed or a password changed: sign in again.
+            // This user was removed, or their password changed: sign in again.
           }
         }
         sessionStorage.removeItem(KEY_STORE);
@@ -209,13 +222,12 @@
           button.disabled = true;
           msg.textContent = 'Checking…';
           try {
-            const id = await userId(user);
-            const found = CONFIG.users.find((u) => u.id === id);
-            if (!found) throw new Error('bad login');
-            const raw = await unwrapKey(found, String(data.get('password') ?? ''));
-            const record = JSON.stringify({ user, key: toB64(raw) });
+            const entry = await findEntry(user);
+            const userKey = await deriveUserKey(entry, String(data.get('password') ?? ''));
+            const appKey = await unwrapAppKey(entry, userKey);
+            const record = JSON.stringify({ user, userKey: toB64(userKey) });
             (data.get('remember') ? localStorage : sessionStorage).setItem(KEY_STORE, record);
-            await start(raw, user);
+            await start(appKey, user);
           } catch {
             msg.textContent = 'Wrong user name or password.';
             button.disabled = false;
